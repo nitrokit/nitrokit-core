@@ -1,3 +1,10 @@
+# 1.0.0 (2025-11-15)
+
+
+### Features
+
+* Set up core application infrastructure ([f0f19ca](https://github.com/nitrokit/nitrokit-core/commit/f0f19cab8f844f0a57cf5b0da36c390edd8e6849))
+
 # [4.0.0](https://github.com/nitrokit/nitrokit-core/compare/v3.1.0...v4.0.0) (2025-11-15)
 
 
