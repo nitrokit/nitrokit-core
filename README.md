@@ -7,7 +7,7 @@
 
 [![NPM Version](https://img.shields.io/npm/v/%40nitrokit%2Fcore)](https://www.npmjs.com/package/@nitrokit/core)
 [![License](https://img.shields.io/npm/l/%40nitrokit%2Fcore)](https://github.com/nitrokit/nitrokit-core/blob/main/LICENSE)
-[![CodeFactor](https://www.codefactor.io/repository/github/nitrokit/nitrokit-core/badge)](https://www.codefactor.io/repository/github/nitrokit/nitrokit-core)
+[![CodeFactor](https://www.codefactor.io/repository/github/nitrokit/nitrokit-core/badge)](https://www.codefactor.io/repository/github/nitrokit/nitrokit-core) [![codecov](https://codecov.io/gh/nitrokit/nitrokit-core/graph/badge.svg?token=XXUgG0K0dF)](https://codecov.io/gh/nitrokit/nitrokit-core)
 
 </div>
 
