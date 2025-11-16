@@ -1,0 +1,16 @@
+{
+    "servers": {
+        "shadcn": {
+            "command": "npm",
+            "args": ["shadcn@latest", "mcp"]
+        },
+        "next-devtools": {
+            "command": "npm",
+            "args": ["-y", "next-devtools-mcp@latest"]
+        },
+        "tailwindcss-server": {
+            "command": "npm",
+            "args": ["-y", "tailwindcss-mcp-server"]
+        }
+    }
+}
