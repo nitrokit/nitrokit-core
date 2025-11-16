@@ -1,6 +1,6 @@
 {
     "name": "@nitrokit/core",
-    "version": "3.0.1",
+    "version": "4.3.1",
     "description": "Core logic and utilities for Nitrokit applications.",
     "type": "module",
     "main": "./dist/index.js",

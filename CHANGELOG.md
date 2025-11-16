@@ -1,3 +1,10 @@
+## [4.3.1](https://github.com/nitrokit/nitrokit-core/compare/v4.3.0...v4.3.1) (2025-11-16)
+
+
+### Bug Fixes
+
+* **ci:** ensure package.json version updates propagate to dist\n\n- remove pkgRoot from semantic-release config\n- disable automatic npm publish in semantic-release\n- rebuild after semantic-release updates version\n- manually publish to both registries from dist\n- fix env test to handle .env file values ([5b30f0a](https://github.com/nitrokit/nitrokit-core/commit/5b30f0ac9b1352bd564586f0e0648683220b8396))
+
 # [4.3.0](https://github.com/nitrokit/nitrokit-core/compare/v4.2.0...v4.3.0) (2025-11-16)
 
 
