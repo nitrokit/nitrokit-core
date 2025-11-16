@@ -1,30 +1,26 @@
 # [4.4.0](https://github.com/nitrokit/nitrokit-core/compare/v4.3.1...v4.4.0) (2025-11-16)
 
-
 ### Features
 
-* Introduce GitHub hooks and i18n types ([cd23187](https://github.com/nitrokit/nitrokit-core/commit/cd231873aed43f98d70e730a65ca5d022c872600))
+- Introduce GitHub hooks and i18n types ([cd23187](https://github.com/nitrokit/nitrokit-core/commit/cd231873aed43f98d70e730a65ca5d022c872600))
 
 ## [4.3.1](https://github.com/nitrokit/nitrokit-core/compare/v4.3.0...v4.3.1) (2025-11-16)
 
-
 ### Bug Fixes
 
-* **ci:** ensure package.json version updates propagate to dist\n\n- remove pkgRoot from semantic-release config\n- disable automatic npm publish in semantic-release\n- rebuild after semantic-release updates version\n- manually publish to both registries from dist\n- fix env test to handle .env file values ([5b30f0a](https://github.com/nitrokit/nitrokit-core/commit/5b30f0ac9b1352bd564586f0e0648683220b8396))
+- **ci:** ensure package.json version updates propagate to dist\n\n- remove pkgRoot from semantic-release config\n- disable automatic npm publish in semantic-release\n- rebuild after semantic-release updates version\n- manually publish to both registries from dist\n- fix env test to handle .env file values ([5b30f0a](https://github.com/nitrokit/nitrokit-core/commit/5b30f0ac9b1352bd564586f0e0648683220b8396))
 
 # [4.3.0](https://github.com/nitrokit/nitrokit-core/compare/v4.2.0...v4.3.0) (2025-11-16)
 
-
 ### Features
 
-* Integrate Codecov for code coverage ([e118eee](https://github.com/nitrokit/nitrokit-core/commit/e118eeed5c7f00c1a43ee979fb43b6e8f6412c08))
+- Integrate Codecov for code coverage ([e118eee](https://github.com/nitrokit/nitrokit-core/commit/e118eeed5c7f00c1a43ee979fb43b6e8f6412c08))
 
 # [4.2.0](https://github.com/nitrokit/nitrokit-core/compare/v4.1.1...v4.2.0) (2025-11-16)
 
-
 ### Features
 
-* Add GitHub data hooks and i18n utilities ([aa54667](https://github.com/nitrokit/nitrokit-core/commit/aa54667bad40edd0b66ec709470caf1b28f5bd43))
+- Add GitHub data hooks and i18n utilities ([aa54667](https://github.com/nitrokit/nitrokit-core/commit/aa54667bad40edd0b66ec709470caf1b28f5bd43))
 
 ## [4.1.1](https://github.com/nitrokit/nitrokit-core/compare/v4.1.0...v4.1.1) (2025-11-16)
 

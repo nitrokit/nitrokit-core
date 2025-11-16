@@ -118,12 +118,12 @@ describe('Environment Configuration', () => {
         it('should contain all defined optional server variables', () => {
             // Since all variables are optional, their values should be undefined in the env object
             // if they are not in process.env. We simulate a server environment for this test.
-            
+
             // Clear any values from .env file
             delete process.env.GOOGLE_ANALYTICS;
             delete process.env.RESEND_API_KEY;
             delete process.env.GH_ACCESS_TOKEN;
-            
+
             const serverSchema = {
                 GOOGLE_SITE_VERIFICATION: z.string().optional(),
                 GOOGLE_ANALYTICS: z.string().optional(),

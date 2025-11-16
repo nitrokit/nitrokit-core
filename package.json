@@ -1,181 +1,181 @@
 {
-  "name": "@nitrokit/core",
-  "version": "4.4.0",
-  "description": "Core logic and utilities for Nitrokit applications.",
-  "type": "module",
-  "main": "./dist/index.js",
-  "types": "./dist/index.d.ts",
-  "exports": {
-    ".": {
-      "import": "./dist/index.js",
-      "types": "./dist/index.d.ts",
-      "default": "./dist/index.js"
+    "name": "@nitrokit/core",
+    "version": "4.4.0",
+    "description": "Core logic and utilities for Nitrokit applications.",
+    "type": "module",
+    "main": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "exports": {
+        ".": {
+            "import": "./dist/index.js",
+            "types": "./dist/index.d.ts",
+            "default": "./dist/index.js"
+        },
+        "./lib": {
+            "import": "./dist/lib/index.js",
+            "types": "./dist/lib/index.d.ts",
+            "default": "./dist/lib/index.js"
+        },
+        "./lib/*": {
+            "import": "./dist/lib/*.js",
+            "types": "./dist/lib/*.d.ts",
+            "default": "./dist/lib/*.js"
+        },
+        "./env": {
+            "import": "./dist/config/env.js",
+            "types": "./dist/config/env.d.ts",
+            "default": "./dist/config/env.js"
+        },
+        "./urls": {
+            "import": "./dist/config/urls.js",
+            "types": "./dist/config/urls.d.ts",
+            "default": "./dist/config/urls.js"
+        },
+        "./actions": {
+            "import": "./dist/actions/index.js",
+            "types": "./dist/actions/index.d.ts",
+            "default": "./dist/actions/index.js"
+        },
+        "./services/email": {
+            "import": "./dist/services/email/index.js",
+            "types": "./dist/services/email/index.d.ts",
+            "default": "./dist/services/email/index.js"
+        },
+        "./services/sms": {
+            "import": "./dist/services/sms/index.js",
+            "types": "./dist/services/sms/index.d.ts",
+            "default": "./dist/services/sms/index.js"
+        },
+        "./services/logger": {
+            "import": "./dist/services/logger/index.js",
+            "types": "./dist/services/logger/index.d.ts",
+            "default": "./dist/services/logger/index.js"
+        },
+        "./services/push-notification": {
+            "import": "./dist/services/push-notification/index.js",
+            "types": "./dist/services/push-notification/index.d.ts",
+            "default": "./dist/services/push-notification/index.js"
+        },
+        "./services/*": {
+            "import": "./dist/services/*.js",
+            "types": "./dist/services/*.d.ts",
+            "default": "./dist/services/*.js"
+        },
+        "./*": {
+            "import": "./dist/*.js",
+            "types": "./dist/*.d.ts",
+            "default": "./dist/*.js"
+        }
     },
-    "./lib": {
-      "import": "./dist/lib/index.js",
-      "types": "./dist/lib/index.d.ts",
-      "default": "./dist/lib/index.js"
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/nitrokit/nitrokit-core.git"
     },
-    "./lib/*": {
-      "import": "./dist/lib/*.js",
-      "types": "./dist/lib/*.d.ts",
-      "default": "./dist/lib/*.js"
+    "keywords": [
+        "nextjs",
+        "typescript",
+        "eslint",
+        "prettier",
+        "tailwindcss",
+        "boilerplate",
+        "template",
+        "starter",
+        "starter-kit",
+        "starter-template"
+    ],
+    "author": {
+        "name": "Mustafa Genç",
+        "email": "eposta@mustafagenc.info",
+        "url": "https://mustafagenc.info"
     },
-    "./env": {
-      "import": "./dist/config/env.js",
-      "types": "./dist/config/env.d.ts",
-      "default": "./dist/config/env.js"
+    "license": "Apache-2.0",
+    "bugs": {
+        "url": "https://github.com/nitrokit/nitrokit-core/issues"
     },
-    "./urls": {
-      "import": "./dist/config/urls.js",
-      "types": "./dist/config/urls.d.ts",
-      "default": "./dist/config/urls.js"
+    "homepage": "https://nitrokit.tr",
+    "private": false,
+    "files": [
+        "dist",
+        "README.md",
+        "SECURITY.md"
+    ],
+    "publishConfig": {
+        "access": "public"
     },
-    "./actions": {
-      "import": "./dist/actions/index.js",
-      "types": "./dist/actions/index.d.ts",
-      "default": "./dist/actions/index.js"
+    "scripts": {
+        "clean": "rm -rf dist",
+        "build": "pnpm run clean && tsc -p tsconfig.json && pnpm exec tsc-alias -p tsconfig.json && node scripts/prepare-dist-package.mjs && cp README.md SECURITY.md CHANGELOG.md dist/ 2>/dev/null || true",
+        "dev": "tsc -w -p tsconfig.json",
+        "type-check": "tsc --noEmit",
+        "lint": "eslint src --no-cache",
+        "lint:fix": "eslint src --fix --no-cache",
+        "format:check": "prettier --check \"**/*.{js,jsx,ts,tsx,json,css,scss,md}\" --cache",
+        "format:write": "prettier --write \"**/*.{js,jsx,ts,tsx,json,css,scss,md}\" --cache",
+        "test": "vitest run",
+        "test:watch": "vitest",
+        "prepare": "husky"
     },
-    "./services/email": {
-      "import": "./dist/services/email/index.js",
-      "types": "./dist/services/email/index.d.ts",
-      "default": "./dist/services/email/index.js"
+    "peerDependencies": {
+        "@aws-sdk/client-sns": "^3.931.0",
+        "@t3-oss/env-nextjs": ">=0.10.1",
+        "@upstash/ratelimit": "^2.0.7",
+        "@upstash/redis": "^1.35.6",
+        "canvas-confetti": "^1.9.4",
+        "class-variance-authority": ">=0.7.0",
+        "clsx": "^2.1.1",
+        "dompurify": "^3.3.0",
+        "firebase-admin": "^13.6.0",
+        "next": "16.0.1",
+        "next-intl": "^4.5.3",
+        "next-themes": "^0.4.6",
+        "react": "19.2.0",
+        "resend": "^6.4.2",
+        "tailwind-merge": "^3.4.0",
+        "twilio": "^5.10.5",
+        "typescript": ">=5",
+        "zod": ">=3.0.0"
     },
-    "./services/sms": {
-      "import": "./dist/services/sms/index.js",
-      "types": "./dist/services/sms/index.d.ts",
-      "default": "./dist/services/sms/index.js"
+    "devDependencies": {
+        "@next/eslint-plugin-next": "^14.2.5",
+        "@semantic-release/changelog": "^6.0.3",
+        "@semantic-release/commit-analyzer": "^13.0.1",
+        "@semantic-release/git": "^10.0.1",
+        "@semantic-release/github": "^12.0.2",
+        "@semantic-release/npm": "^13.1.1",
+        "@semantic-release/release-notes-generator": "^14.1.0",
+        "@t3-oss/env-nextjs": "^0.10.1",
+        "@testing-library/dom": "^10.4.1",
+        "@testing-library/jest-dom": "^6.9.1",
+        "@testing-library/react": "^16.3.0",
+        "@testing-library/user-event": "^14.6.1",
+        "@types/canvas-confetti": "^1.9.0",
+        "@types/node": "^24.10.1",
+        "@types/normalize-package-data": "^2.4.4",
+        "@types/react": "^19.2.4",
+        "@typescript-eslint/eslint-plugin": "^8.0.0",
+        "@typescript-eslint/parser": "^8.0.0",
+        "@vitest/browser": "^4.0.9",
+        "@vitest/coverage-v8": "^4.0.9",
+        "@vitest/ui": "^4.0.9",
+        "class-variance-authority": "^0.7.1",
+        "clsx": "^2.1.1",
+        "eslint": "^8.57.0",
+        "eslint-config-next": "^14.2.5",
+        "eslint-config-prettier": "^9.1.0",
+        "eslint-plugin-react-hooks": "^4.6.2",
+        "eslint-plugin-tailwindcss": "^3.17.4",
+        "globals": "^15.8.0",
+        "husky": "^9.1.7",
+        "jsdom": "^27.2.0",
+        "prettier": "^3.3.3",
+        "prettier-plugin-tailwindcss": "^0.6.5",
+        "semantic-release": "^25.0.2",
+        "tailwind-merge": "^3.4.0",
+        "tsc-alias": "^1.8.10",
+        "typescript": "^5.5.3",
+        "typescript-eslint": "^8.0.0",
+        "vitest": "^4.0.9",
+        "zod": "^4.1.12"
     },
-    "./services/logger": {
-      "import": "./dist/services/logger/index.js",
-      "types": "./dist/services/logger/index.d.ts",
-      "default": "./dist/services/logger/index.js"
-    },
-    "./services/push-notification": {
-      "import": "./dist/services/push-notification/index.js",
-      "types": "./dist/services/push-notification/index.d.ts",
-      "default": "./dist/services/push-notification/index.js"
-    },
-    "./services/*": {
-      "import": "./dist/services/*.js",
-      "types": "./dist/services/*.d.ts",
-      "default": "./dist/services/*.js"
-    },
-    "./*": {
-      "import": "./dist/*.js",
-      "types": "./dist/*.d.ts",
-      "default": "./dist/*.js"
-    }
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/nitrokit/nitrokit-core.git"
-  },
-  "keywords": [
-    "nextjs",
-    "typescript",
-    "eslint",
-    "prettier",
-    "tailwindcss",
-    "boilerplate",
-    "template",
-    "starter",
-    "starter-kit",
-    "starter-template"
-  ],
-  "author": {
-    "name": "Mustafa Genç",
-    "email": "eposta@mustafagenc.info",
-    "url": "https://mustafagenc.info"
-  },
-  "license": "Apache-2.0",
-  "bugs": {
-    "url": "https://github.com/nitrokit/nitrokit-core/issues"
-  },
-  "homepage": "https://nitrokit.tr",
-  "private": false,
-  "files": [
-    "dist",
-    "README.md",
-    "SECURITY.md"
-  ],
-  "publishConfig": {
-    "access": "public"
-  },
-  "scripts": {
-    "clean": "rm -rf dist",
-    "build": "pnpm run clean && tsc -p tsconfig.json && pnpm exec tsc-alias -p tsconfig.json && node scripts/prepare-dist-package.mjs && cp README.md SECURITY.md CHANGELOG.md dist/ 2>/dev/null || true",
-    "dev": "tsc -w -p tsconfig.json",
-    "type-check": "tsc --noEmit",
-    "lint": "eslint src --no-cache",
-    "lint:fix": "eslint src --fix --no-cache",
-    "format:check": "prettier --check \"**/*.{js,jsx,ts,tsx,json,css,scss,md}\" --cache",
-    "format:write": "prettier --write \"**/*.{js,jsx,ts,tsx,json,css,scss,md}\" --cache",
-    "test": "vitest run",
-    "test:watch": "vitest",
-    "prepare": "husky"
-  },
-  "peerDependencies": {
-    "@aws-sdk/client-sns": "^3.931.0",
-    "@t3-oss/env-nextjs": ">=0.10.1",
-    "@upstash/ratelimit": "^2.0.7",
-    "@upstash/redis": "^1.35.6",
-    "canvas-confetti": "^1.9.4",
-    "class-variance-authority": ">=0.7.0",
-    "clsx": "^2.1.1",
-    "dompurify": "^3.3.0",
-    "firebase-admin": "^13.6.0",
-    "next": "16.0.1",
-    "next-intl": "^4.5.3",
-    "next-themes": "^0.4.6",
-    "react": "19.2.0",
-    "resend": "^6.4.2",
-    "tailwind-merge": "^3.4.0",
-    "twilio": "^5.10.5",
-    "typescript": ">=5",
-    "zod": ">=3.0.0"
-  },
-  "devDependencies": {
-    "@next/eslint-plugin-next": "^14.2.5",
-    "@semantic-release/changelog": "^6.0.3",
-    "@semantic-release/commit-analyzer": "^13.0.1",
-    "@semantic-release/git": "^10.0.1",
-    "@semantic-release/github": "^12.0.2",
-    "@semantic-release/npm": "^13.1.1",
-    "@semantic-release/release-notes-generator": "^14.1.0",
-    "@t3-oss/env-nextjs": "^0.10.1",
-    "@testing-library/dom": "^10.4.1",
-    "@testing-library/jest-dom": "^6.9.1",
-    "@testing-library/react": "^16.3.0",
-    "@testing-library/user-event": "^14.6.1",
-    "@types/canvas-confetti": "^1.9.0",
-    "@types/node": "^24.10.1",
-    "@types/normalize-package-data": "^2.4.4",
-    "@types/react": "^19.2.4",
-    "@typescript-eslint/eslint-plugin": "^8.0.0",
-    "@typescript-eslint/parser": "^8.0.0",
-    "@vitest/browser": "^4.0.9",
-    "@vitest/coverage-v8": "^4.0.9",
-    "@vitest/ui": "^4.0.9",
-    "class-variance-authority": "^0.7.1",
-    "clsx": "^2.1.1",
-    "eslint": "^8.57.0",
-    "eslint-config-next": "^14.2.5",
-    "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-react-hooks": "^4.6.2",
-    "eslint-plugin-tailwindcss": "^3.17.4",
-    "globals": "^15.8.0",
-    "husky": "^9.1.7",
-    "jsdom": "^27.2.0",
-    "prettier": "^3.3.3",
-    "prettier-plugin-tailwindcss": "^0.6.5",
-    "semantic-release": "^25.0.2",
-    "tailwind-merge": "^3.4.0",
-    "tsc-alias": "^1.8.10",
-    "typescript": "^5.5.3",
-    "typescript-eslint": "^8.0.0",
-    "vitest": "^4.0.9",
-    "zod": "^4.1.12"
-  },
-  "packageManager": "pnpm@10.20.0"
+    "packageManager": "pnpm@10.20.0"
 }

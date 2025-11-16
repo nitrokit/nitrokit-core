@@ -1,6 +1,6 @@
-#!/usr/bin/env bash
-# .husky/pre-commit
-set -euo pipefail
+#!/bin/sh
+# .husky/pre-commit (POSIX compliant)
+set -eu
 
 if [ "${CI:-}" = "true" ] || git log -1 --pretty=%B | grep -q '\[skip ci]'; then
   echo "🚀 Skipping pre-commit validation in CI or for release commit."
@@ -11,8 +11,8 @@ echo '🚀 Checking if pre-commit validation is needed...'
 
 BRANCH=$(git rev-parse --abbrev-ref HEAD 2>/dev/null || git branch --show-current 2>/dev/null || echo "unknown")
 
-PROTECTED_BRANCHES=("main" "next" "beta")
-DEVELOPMENT_BRANCHES=( "develop")
+PROTECTED_BRANCHES="main next beta"
+DEVELOPMENT_BRANCHES="develop"
 
 RED='\033[0;31m'
 GREEN='\033[0;32m'
@@ -29,17 +29,17 @@ VALIDATION_LEVEL="none"
 
 echo "📍 Current branch: $BRANCH"
 
-for protected_branch in "${PROTECTED_BRANCHES[@]}"; do
-    if [[ "$BRANCH" == "$protected_branch" ]]; then
+for protected_branch in $PROTECTED_BRANCHES; do
+    if [ "$BRANCH" = "$protected_branch" ]; then
         VALIDATION_LEVEL="full"
         echo "🔒 Detected protected branch: $BRANCH"
         break
     fi
 done
 
-if [[ "$VALIDATION_LEVEL" == "none" ]]; then
-    for dev_branch in "${DEVELOPMENT_BRANCHES[@]}"; do
-        if [[ "$BRANCH" == "$dev_branch" ]]; then
+if [ "$VALIDATION_LEVEL" = "none" ]; then
+    for dev_branch in $DEVELOPMENT_BRANCHES; do
+        if [ "$BRANCH" = "$dev_branch" ]; then
             VALIDATION_LEVEL="basic"
             echo "🛠️  Detected development branch: $BRANCH"
             break
@@ -47,22 +47,22 @@ if [[ "$VALIDATION_LEVEL" == "none" ]]; then
     done
 fi
 
-if [[ "$VALIDATION_LEVEL" == "none" ]]; then
+if [ "$VALIDATION_LEVEL" = "none" ]; then
     echo -e "${YELLOW}🟡 Skipping pre-commit checks for feature branch: $BRANCH${NC}"
-    echo -e "${BLUE}💡 Basic checks run on: ${DEVELOPMENT_BRANCHES[*]}${NC}"
-    echo -e "${GREEN}🔒 Full checks run on: ${PROTECTED_BRANCHES[*]}${NC}"
+    echo -e "${BLUE}💡 Basic checks run on: $DEVELOPMENT_BRANCHES${NC}"
+    echo -e "${GREEN}🔒 Full checks run on: $PROTECTED_BRANCHES${NC}"
     exit 0
 fi
 
-if [[ "$VALIDATION_LEVEL" == "full" ]]; then
+if [ "$VALIDATION_LEVEL" = "full" ]; then
     echo -e "${GREEN}🔒 Running FULL validation for protected branch: $BRANCH${NC}"
-elif [[ "$VALIDATION_LEVEL" == "basic" ]]; then
+elif [ "$VALIDATION_LEVEL" = "basic" ]; then
     echo -e "${BLUE}🛠️  Running BASIC validation for development branch: $BRANCH${NC}"
 fi
 
 run_command() {
-    local command="$1"
-    local error_message="$2"
+    command="$1"
+    error_message="$2"
     
     echo -e "${BLUE}🔄 Running: $command${NC}"
     
@@ -91,7 +91,7 @@ run_command() {
 }
 
 script_exists() {
-    local script_name="$1"
+    script_name="$1"
     
     if command -v pnpm >/dev/null 2>&1; then
         pnpm run --help 2>/dev/null | grep -q "^  $script_name" || \
@@ -129,7 +129,7 @@ else
     echo -e "${YELLOW}⚠️  TypeScript check script not found, skipping...${NC}"
 fi
 
-if [[ "$VALIDATION_LEVEL" == "full" ]]; then
+if [ "$VALIDATION_LEVEL" = "full" ]; then
     echo -e "\n${YELLOW}🔍 Running ESLint (full validation)...${NC}"
     if script_exists "lint"; then
         if ! run_command "lint" "ESLint Check Failed. Make the required changes listed above, add changes and try to commit again."; then
@@ -141,7 +141,7 @@ if [[ "$VALIDATION_LEVEL" == "full" ]]; then
 
     echo -e "\n${YELLOW}🧪 Running tests (full validation, only if src changed)...${NC}"
     CHANGED_FILES=$(git diff --cached --name-only || true)
-    if echo "${CHANGED_FILES}" | grep -q '^src/'; then
+    if echo "$CHANGED_FILES" | grep -q '^src/'; then
         if script_exists "test"; then
             if ! run_command "test" "Tests failed. Fix the failing tests and try again."; then
                 exit 1
