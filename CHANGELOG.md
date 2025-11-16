@@ -1,3 +1,10 @@
+# [4.2.0](https://github.com/nitrokit/nitrokit-core/compare/v4.1.1...v4.2.0) (2025-11-16)
+
+
+### Features
+
+* Add GitHub data hooks and i18n utilities ([aa54667](https://github.com/nitrokit/nitrokit-core/commit/aa54667bad40edd0b66ec709470caf1b28f5bd43))
+
 ## [4.1.1](https://github.com/nitrokit/nitrokit-core/compare/v4.1.0...v4.1.1) (2025-11-16)
 
 ### Bug Fixes
