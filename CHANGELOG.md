@@ -1,3 +1,10 @@
+# [4.4.0](https://github.com/nitrokit/nitrokit-core/compare/v4.3.1...v4.4.0) (2025-11-16)
+
+
+### Features
+
+* Introduce GitHub hooks and i18n types ([cd23187](https://github.com/nitrokit/nitrokit-core/commit/cd231873aed43f98d70e730a65ca5d022c872600))
+
 ## [4.3.1](https://github.com/nitrokit/nitrokit-core/compare/v4.3.0...v4.3.1) (2025-11-16)
 
 
