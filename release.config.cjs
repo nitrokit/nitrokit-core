@@ -1,5 +1,4 @@
 module.exports = {
-    pkgRoot: 'dist',
     branches: ['main', { name: 'beta', prerelease: true }, { name: 'next', prerelease: true }],
     plugins: [
         [
@@ -29,15 +28,13 @@ module.exports = {
         [
             '@semantic-release/npm',
             {
-                npmPublish: true,
-                access: 'public',
-                registry: 'https://registry.npmjs.org/'
+                npmPublish: false
             }
         ],
         [
             '@semantic-release/git',
             {
-                assets: ['package.json', 'CHANGELOG.md'],
+                assets: ['package.json', 'CHANGELOG.md', 'dist/package.json'],
                 message:
                     'chore(release): version ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}'
             }
