@@ -26,10 +26,10 @@
             "types": "./dist/config/env.d.ts",
             "default": "./dist/config/env.js"
         },
-        "./url": {
-            "import": "./dist/config/url.js",
-            "types": "./dist/config/url.d.ts",
-            "default": "./dist/config/url.js"
+        "./urls": {
+            "import": "./dist/config/urls.js",
+            "types": "./dist/config/urls.d.ts",
+            "default": "./dist/config/urls.js"
         },
         "./actions": {
             "import": "./dist/actions/index.js",
@@ -104,7 +104,7 @@
     },
     "scripts": {
         "clean": "rm -rf dist",
-        "build": "pnpm run clean && tsc -p tsconfig.json && pnpm exec tsc-alias -p tsconfig.json && cp package.json README.md SECURITY.md dist/",
+        "build": "pnpm run clean && tsc -p tsconfig.json && pnpm exec tsc-alias -p tsconfig.json && node scripts/prepare-dist-package.mjs && cp README.md SECURITY.md CHANGELOG.md dist/ 2>/dev/null || true",
         "dev": "tsc -w -p tsconfig.json",
         "type-check": "tsc --noEmit",
         "lint": "eslint src --no-cache",

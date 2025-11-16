@@ -35,14 +35,6 @@ module.exports = {
             }
         ],
         [
-            '@semantic-release/npm',
-            {
-                npmPublish: true,
-                access: 'public',
-                registry: 'https://npm.pkg.github.com/'
-            }
-        ],
-        [
             '@semantic-release/git',
             {
                 assets: ['package.json', 'CHANGELOG.md'],

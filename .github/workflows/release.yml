@@ -12,6 +12,7 @@ jobs:
     permissions:
       contents: write
       issues: write
+      packages: write
     
     steps:
       - name: Checkout repository
@@ -44,3 +45,13 @@ jobs:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         with:
           working_directory: .
+
+      - name: Publish to GitHub Packages
+        if: always()
+        working-directory: dist
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          echo "//npm.pkg.github.com/:_authToken=${GITHUB_TOKEN}" > .npmrc
+          npm publish --registry https://npm.pkg.github.com/
