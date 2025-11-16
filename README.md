@@ -45,6 +45,7 @@ yarn add @nitrokit/core
 ### 🚀 Usage
 
 Easily import and use the provided hooks and utilities in your React components.
+
 ```tsx
 import { useMobile, cn } from '@nitrokit/core';
 

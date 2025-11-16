@@ -115,23 +115,24 @@
         "test:watch": "vitest"
     },
     "peerDependencies": {
+        "@aws-sdk/client-sns": "^3.931.0",
         "@t3-oss/env-nextjs": ">=0.10.1",
+        "@upstash/ratelimit": "^2.0.7",
+        "@upstash/redis": "^1.35.6",
         "canvas-confetti": "^1.9.4",
         "class-variance-authority": ">=0.7.0",
         "clsx": "^2.1.1",
+        "dompurify": "^3.3.0",
+        "firebase-admin": "^13.6.0",
         "next": "16.0.1",
         "next-themes": "^0.4.6",
         "react": "19.2.0",
+        "resend": "^6.4.2",
         "tailwind-merge": "^3.4.0",
+        "twilio": "^5.10.5",
         "typescript": ">=5",
         "zod": ">=3.0.0",
-        "firebase-admin": "^13.6.0",
-        "twilio": "^5.10.5",
-        "@aws-sdk/client-sns": "^3.931.0",
-        "resend": "^6.4.2",
-        "@upstash/ratelimit": "^2.0.7",
-        "@upstash/redis": "^1.35.6",
-        "dompurify": "^3.3.0"
+        "next-intl": "^4.5.3"
     },
     "devDependencies": {
         "@next/eslint-plugin-next": "^14.2.5",
@@ -168,11 +169,11 @@
         "prettier-plugin-tailwindcss": "^0.6.5",
         "semantic-release": "^25.0.2",
         "tailwind-merge": "^3.4.0",
+        "tsc-alias": "^1.8.10",
         "typescript": "^5.5.3",
         "typescript-eslint": "^8.0.0",
         "vitest": "^4.0.9",
-        "zod": "^4.1.12",
-        "tsc-alias": "^1.8.10"
+        "zod": "^4.1.12"
     },
     "packageManager": "pnpm@10.20.0"
 }

@@ -1,4 +1,4 @@
-import { GitHubRelease, GitHubRepository } from "../types";
+import { GitHubRelease, GitHubRepository } from '../types';
 
 /**
  * Service class for interacting with the GitHub API.
