@@ -1,9 +1,9 @@
 <div align="center">
   <a href="https://nitrokit.tr">
-    <img alt="Nitrokit Logo" src="https://raw.githubusercontent.com/nitrokit/nitrokit-nextjs/refs/heads/main/public/images/logos/nitrokit.png" height="100">
+    <img alt="Nitrokit Core Logo" src="https://raw.githubusercontent.com/nitrokit/nitrokit-core/refs/heads/main/assets/nitrokit-core.png" height="150">
   </a>
 
-# 📦 @nitrokit/core
+# @nitrokit/core
 
 [![NPM Version](https://img.shields.io/npm/v/%40nitrokit%2Fcore)](https://www.npmjs.com/package/@nitrokit/core)
 [![License](https://img.shields.io/npm/l/%40nitrokit%2Fcore)](https://github.com/nitrokit/nitrokit-core/blob/main/LICENSE)
