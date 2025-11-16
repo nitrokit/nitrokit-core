@@ -1,3 +1,10 @@
+# [4.3.0](https://github.com/nitrokit/nitrokit-core/compare/v4.2.0...v4.3.0) (2025-11-16)
+
+
+### Features
+
+* Integrate Codecov for code coverage ([e118eee](https://github.com/nitrokit/nitrokit-core/commit/e118eeed5c7f00c1a43ee979fb43b6e8f6412c08))
+
 # [4.2.0](https://github.com/nitrokit/nitrokit-core/compare/v4.1.1...v4.2.0) (2025-11-16)
 
 
