@@ -71,12 +71,103 @@ function MyResponsiveComponent({ isActive }) {
 The library exposes several modules from its main entry point:
 
 - **Hooks:** `useCanvasConfetti`, `useClickOutside`, `useCookieConsent`, `useHotkeys`, `useHoverEffects`, `useMobile`, `useNextTheme`.
+    - New: `useShoppingCart` – lightweight cart state + payment request conversion.
 - **Utilities:** `cn`, `delay`, `getErrorMessage`, `formatCompactNumber`, `formatPhoneForDisplay`, and more.
 - **Types:** `GitHubRepository`, `GitHubRelease`, `RepoStats`, and other shared interfaces.
 - **Server-side Environment:** For server-side code, import environment variables from the dedicated entry point:
     ```javascript
     import { env } from '@nitrokit/core/env';
     ```
+
+---
+
+### 🛒 Shopping Cart Hook (`useShoppingCart`)
+
+Persisted (or ephemeral) cart management integrated with the payment providers. Items are stored in minor currency units (cents / kuruş) for precision.
+
+```tsx
+import { ShoppingCartProvider, useShoppingCart } from '@nitrokit/core';
+
+function App() {
+    return (
+        <ShoppingCartProvider storageMode="local" expireAfterMs={1000 * 60 * 60 /* 1h */}>
+            <CartView />
+        </ShoppingCartProvider>
+    );
+}
+
+function CartView() {
+    const { items, addItem, formattedTotal, toPaymentRequest, clearCart } = useShoppingCart();
+
+    return (
+        <div>
+            <button
+                onClick={() =>
+                    addItem({
+                        id: 'sku-1',
+                        name: 'T-Shirt',
+                        price: 8990,
+                        currency: 'try',
+                        imageUrl: '/tshirt.png'
+                    })
+                }
+            >
+                Add T‑Shirt
+            </button>
+
+            <ul>
+                {items.map((i) => (
+                    <li key={i.id}>
+                        {i.name} x{i.quantity} = {(i.price * i.quantity) / 100}{' '}
+                        {i.currency.toUpperCase()}
+                    </li>
+                ))}
+            </ul>
+
+            <strong>Total: {formattedTotal}</strong>
+
+            <button
+                onClick={() => {
+                    const req = toPaymentRequest({
+                        orderId: 'ORDER-123',
+                        email: 'user@example.com',
+                        successUrl: 'https://example.com/pay/success',
+                        failUrl: 'https://example.com/pay/fail'
+                    });
+                    // Pass req to PaymentService / provider
+                    console.log('PaymentRequest', req);
+                }}
+            >
+                Checkout
+            </button>
+
+            <button onClick={clearCart}>Clear</button>
+        </div>
+    );
+}
+```
+
+Props / Options:
+
+- `storageMode`: `'local' | 'session' | 'none'` (default `local`).
+- `persist`: boolean (default `true`, ignored if `storageMode==='none'`).
+- `expireAfterMs`: optional TTL; expired carts are ignored and cleared on load.
+- `formatTotal`: override default currency formatting.
+- `initialItems`: prehydrate (e.g., server or SSR bootstrap).
+
+API methods:
+
+- `addItem`, `updateItem`, `removeItem`, `setQuantity`, `clearCart`.
+- `formattedTotal`, `totalAmount` (minor units), `totalQuantity`.
+- `toPaymentRequest(params)` converts current cart into a `CreatePaymentRequest` suitable for providers (PayTR / Stripe).
+
+Cart Item Shape:
+
+```ts
+{ id: string; name: string; price: number; currency: string; quantity: number; imageUrl?: string; metadata?: Record<string, any>; }
+```
+
+Minor Units: Store prices as integer minor units (e.g. 89.90 TRY -> `8990`) to avoid floating point rounding errors.
 
 ---
 

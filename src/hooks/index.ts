@@ -8,3 +8,4 @@ export * from './useHoverEffects';
 export * from './useMobile';
 export * from './useNextTheme';
 export * from './useStickyNavbar';
+export * from './useShoppingCart';
