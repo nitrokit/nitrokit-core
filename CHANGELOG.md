@@ -1,3 +1,12 @@
+# [4.5.0](https://github.com/nitrokit/nitrokit-core/compare/v4.4.0...v4.5.0) (2025-11-19)
+
+
+### Features
+
+* Adds a comprehensive set of SVG icons ([8ace0e6](https://github.com/nitrokit/nitrokit-core/commit/8ace0e617c1b456da3c749eafda850445f4cce7e))
+* Adds a modular payment service architecture ([0c6b169](https://github.com/nitrokit/nitrokit-core/commit/0c6b169942919442cb9df3f5286885d6943d03f5))
+* **hooks:** Adds a robust shopping cart management hook ([f2437fe](https://github.com/nitrokit/nitrokit-core/commit/f2437fe810e91d2129892c1544e0d492bf7869a6))
+
 # [4.4.0](https://github.com/nitrokit/nitrokit-core/compare/v4.3.1...v4.4.0) (2025-11-16)
 
 ### Features
